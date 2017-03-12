@@ -39,13 +39,16 @@ class EntradaTexto {
         LocalDateTime momentoActual = LocalDateTime.now(); 
         int minutos = momentoActual.getMinute() - momentoPublicacion.getMinute();
         int segundo = momentoActual.getSecond() - momentoPublicacion.getSecond();
-
-        String datosGenerales = "Nombre usuario --> " +usuario+ "  Mensje enviado --> " +mensaje+ ". Catidad de meGusta --> " +
-            cantidadMeGusta+  ". Comentarios recibidos --> No ha recibido ningún comentario. Minutos transcurridos --> " +
-            minutos+ ". Segundos transcurridos -->" +segundo;
+        if(segundo < 0){
+            segundo = segundo * -1;
+        }
+        String datosGenerales = "EntradaTexto: Nombre usuario --> " +usuario+ "  Mensje enviado --> " +mensaje+ ". Catidad de meGusta --> " +
+            cantidadMeGusta+  ". Comentarios recibidos --> No ha recibido ningún comentario.. Este post fue creado hace --> " +
+            minutos+ " minutos, y -->" +segundo+ " segundos.";
         if(!comentarios.isEmpty()){
-            datosGenerales = "Nombre usuario --> " +usuario+ "  Mensje enviado --> " +mensaje+ "  Catidad de meGusta --> " +
-            cantidadMeGusta+  ". Minutos transcurridos --> " + minutos+ ". Segundos transcurridos -->" +segundo;
+            datosGenerales = "EntradaTexto: Nombre usuario --> " +usuario+ "  Mensje enviado --> " +mensaje+ "  Catidad de meGusta --> " +
+            cantidadMeGusta+  ". Este post fue creado hace --> " + minutos+ " minutos, y -->" +segundo+
+            " segundos.";
         }
         return datosGenerales;
     }

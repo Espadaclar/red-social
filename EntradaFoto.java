@@ -17,7 +17,6 @@ public class EntradaFoto
      */
     public EntradaFoto(String autor, String url, String titulo)
     {
-        url = "http://www.significadodelossueños.net/wp-content/uploads/2013/10/So%C3%B1ar-con-muchedumbre.gif";
 
         urlImagen = url;
         usuario = autor;
@@ -55,14 +54,16 @@ public class EntradaFoto
         LocalDateTime momentoActual = LocalDateTime.now(); 
         int minutos = momentoActual.getMinute() - momentoPublicacion.getMinute();
         int segundo = momentoActual.getSecond() - momentoPublicacion.getSecond();
-
-        String datosGenerales = "Nombre usuario --> " +usuario+ ". Catidad de meGusta --> " +
-            cantidadMeGusta+  ". Comentarios recibidos --> No ha recibido ningún comentario. Minutos transcurridos --> " +
-            minutos+ ". Segundos transcurridos -->" +segundo+ " Foto --> " +urlImagen;
+        if(segundo < 0){
+            segundo = segundo * -1;
+        }
+        String datosGenerales = "EntradaFoto: Nombre usuario --> " +usuario+ ". Catidad de meGusta --> " +
+            cantidadMeGusta+ ". Comentarios recibidos --> No ha recibido ningún comentario. Este post fue creado hace --> " + minutos+ 
+            " minutos y --> " +segundo+ " segundos. URL de la foto --> " +urlImagen;
          if(!comentarios.isEmpty()){
-            datosGenerales = "Nombre usuario --> " +usuario+ ". Catidad de meGusta --> " +
-            cantidadMeGusta+  ". Minutos transcurridos --> " + minutos+ ". Segundos transcurridos -->" +segundo+
-            " Foto --> " +urlImagen;
+            datosGenerales = "EntradaFoto: Nombre usuario --> " +usuario+ ". Catidad de meGusta --> " +
+            cantidadMeGusta+  ". Este post fue creado hace --> " + minutos+ " minutos, y -->" +segundo+
+            " segundos. URL de la foto --> " +urlImagen;
         }  
 
         return datosGenerales;
