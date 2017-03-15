@@ -50,25 +50,41 @@ public class EntradaFoto
         return momentoPublicacion;
     }
 
-    public String toString(){
+    public String toString(){       
         LocalDateTime momentoActual = LocalDateTime.now(); 
+        //
         int minutos = momentoActual.getMinute() - momentoPublicacion.getMinute();
         int segundo = momentoActual.getSecond() - momentoPublicacion.getSecond();
-        if(segundo < 0){
-            segundo = segundo * -1;
+        if(momentoActual.getMinute() < momentoPublicacion.getMinute()){
+            minutos = ( 60 - momentoPublicacion.getMinute() ) + momentoActual.getMinute()  ;
         }
-        String datosGenerales = "EntradaFoto: Nombre usuario --> " +usuario+ ". Catidad de meGusta --> " +
-            cantidadMeGusta+ ". Comentarios recibidos --> No ha recibido ningún comentario. Este post fue creado hace --> " + minutos+ 
-            " minutos y --> " +segundo+ " segundos. URL de la foto --> " +urlImagen;
-         if(!comentarios.isEmpty()){
-            datosGenerales = "EntradaFoto: Nombre usuario --> " +usuario+ ". Catidad de meGusta --> " +
-            cantidadMeGusta+  ". Este post fue creado hace --> " + minutos+ " minutos, y -->" +segundo+
-            " segundos. URL de la foto --> " +urlImagen;
-        }  
+        if(momentoActual.getSecond() < momentoPublicacion.getSecond()){
+            segundo = ( 60 - momentoPublicacion.getSecond() ) + momentoActual.getSecond() ;
+        }
+        if(momentoActual.getMinute() == momentoPublicacion.getMinute()){
+            minutos =   momentoPublicacion.getMinute()  ;
+        }
+        if(momentoActual.getSecond() == momentoPublicacion.getSecond()){
+            segundo =  momentoPublicacion.getSecond() ;
+        }
 
+        String datosGenerales = "Autor. " +usuario+ "\n";
+        datosGenerales += "URL de la imagen. " +urlImagen+ "\n";        
+        datosGenerales += "Título. " +titulo+ "\n";        
+        datosGenerales += "Tiempo trascurrido desde la publicación. "  +minutos+ " minutos y " +segundo+ " segundos.\n";
+        datosGenerales += "Cantidad de meGusta. " +cantidadMeGusta+ "\n";
+
+        if(comentarios.isEmpty()){
+            datosGenerales += "=== Comentarios. ===\n  No ha recibido ningún comentario.\n" ;
+        }
+        else{
+            datosGenerales += "=== Comentarios. ===\n " ;
+            for(String comentario: comentarios){
+                System.out.println(comentario);
+            }
+        }
         return datosGenerales;
     }
-
 }
 
 
