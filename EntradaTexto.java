@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 import java.time.*;
+import java.time.temporal.ChronoUnit;
+
 /**
  *
  * @author Usuario
@@ -37,51 +39,37 @@ class EntradaTexto {
     }
 
     public String toString(){
-        LocalDateTime momentoActual = LocalDateTime.now(); 
-        //
-        int minutos = momentoActual.getMinute() - momentoPublicacion.getMinute();
-        int segundo = momentoActual.getSecond() - momentoPublicacion.getSecond();
-        if(momentoActual.getMinute() < momentoPublicacion.getMinute()){
-            minutos = ( 60 - momentoPublicacion.getMinute() ) + momentoActual.getMinute()  ;
+         String cadenaADevolver = "========= ENTRADA TEXTO ===\n";
+        
+        cadenaADevolver += "Usuario: " + usuario + "\n";
+        cadenaADevolver += "Mensaje: " +mensaje + "\n";
+        cadenaADevolver += cantidadMeGusta + " me gusta.\n";
+        
+        long segundosQueHanPasadoDesdeCreacion = momentoPublicacion.until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
+        long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
+        
+        cadenaADevolver += "Hace ";
+        if (minutosQueHanPasadoDesdeCreacion > 0) {
+            cadenaADevolver += minutosQueHanPasadoDesdeCreacion + " minutos ";
         }
-        if(momentoActual.getSecond() < momentoPublicacion.getSecond()){
-            segundo = ( 60 - momentoPublicacion.getSecond() ) + momentoActual.getSecond() ;
+        cadenaADevolver += segundosResiduales + " segundos.\n";       
+        
+        if (comentarios.isEmpty()) {
+            cadenaADevolver += "La entrada no tiene comentarios.\n";
         }
-        if(momentoActual.getMinute() == momentoPublicacion.getMinute()){
-            minutos =   momentoPublicacion.getMinute()  ;
-        }
-        if(momentoActual.getSecond() == momentoPublicacion.getSecond()){
-            segundo =  momentoPublicacion.getSecond() ;
-        }
-
-        String datosGenerales = "Autor. " +usuario+ "\n";
-        datosGenerales += "Mensaje. " +mensaje+ "\n";
-        datosGenerales += "Tiempo trascurrido desde la publicación. "  +minutos+ " minutos y " +segundo+ " segundos.\n";
-        datosGenerales += "Cantidad de meGusta. " +cantidadMeGusta+ "\n";
-
-        if(comentarios.isEmpty()){
-            datosGenerales += "=== Comentarios. ===\n  No ha recibido ningún comentario.\n" ;
-        }
-        else{
-            datosGenerales += "=== Comentarios. ===\n " ;
-            for(String comentario: comentarios){
-                System.out.println(comentario);
+        else {
+            //Se recopilan los comentarios
+            cadenaADevolver += "Comentarios:\n";
+            for (String comentario : comentarios) {
+                cadenaADevolver += comentario + "\n";
             }
-        }
-        return datosGenerales;
+        }   
+        return cadenaADevolver; 
     }
 
     public void zMostrarComentarios(){
-
         System.out.println(this);
-        if(!comentarios.isEmpty()){
-            for(int i = 0; i < comentarios.size(); i ++){
-                System.out.println("   ." +comentarios.get(i));
-            }
-        }
-        //         else{
-        //             System.out.println("No ha recibido ningún comentario.");
-        //         }        
     }
 
 }

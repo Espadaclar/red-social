@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.time.*;
+import java.time.temporal.ChronoUnit;
 /**
  * 
  */
@@ -51,39 +52,35 @@ public class EntradaFoto
     }
 
     public String toString(){       
-        LocalDateTime momentoActual = LocalDateTime.now(); 
-        //
-        int minutos = momentoActual.getMinute() - momentoPublicacion.getMinute();
-        int segundo = momentoActual.getSecond() - momentoPublicacion.getSecond();
-        if(momentoActual.getMinute() < momentoPublicacion.getMinute()){
-            minutos = ( 60 - momentoPublicacion.getMinute() ) + momentoActual.getMinute()  ;
+         String cadenaADevolver = "========= ENTRADA FOTO ===\n";
+        
+        cadenaADevolver += "Usuario: " + usuario + "\n";
+        cadenaADevolver += "Título foto: " +titulo + "\n";
+        cadenaADevolver += "Url de la foto: " +urlImagen + "\n";
+        cadenaADevolver += cantidadMeGusta + " me gusta.\n";
+        
+        long segundosQueHanPasadoDesdeCreacion = momentoPublicacion.until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
+        long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
+        
+        cadenaADevolver += "Hace ";
+        if (minutosQueHanPasadoDesdeCreacion > 0) {
+            cadenaADevolver += minutosQueHanPasadoDesdeCreacion + " minutos ";
         }
-        if(momentoActual.getSecond() < momentoPublicacion.getSecond()){
-            segundo = ( 60 - momentoPublicacion.getSecond() ) + momentoActual.getSecond() ;
+        cadenaADevolver += segundosResiduales + " segundos.\n";       
+        
+        if (comentarios.isEmpty()) {
+            cadenaADevolver += "La entrada no tiene comentarios.\n";
         }
-        if(momentoActual.getMinute() == momentoPublicacion.getMinute()){
-            minutos =   momentoPublicacion.getMinute()  ;
-        }
-        if(momentoActual.getSecond() == momentoPublicacion.getSecond()){
-            segundo =  momentoPublicacion.getSecond() ;
-        }
-
-        String datosGenerales = "Autor. " +usuario+ "\n";
-        datosGenerales += "URL de la imagen. " +urlImagen+ "\n";        
-        datosGenerales += "Título. " +titulo+ "\n";        
-        datosGenerales += "Tiempo trascurrido desde la publicación. "  +minutos+ " minutos y " +segundo+ " segundos.\n";
-        datosGenerales += "Cantidad de meGusta. " +cantidadMeGusta+ "\n";
-
-        if(comentarios.isEmpty()){
-            datosGenerales += "=== Comentarios. ===\n  No ha recibido ningún comentario.\n" ;
-        }
-        else{
-            datosGenerales += "=== Comentarios. ===\n " ;
-            for(String comentario: comentarios){
-                System.out.println(comentario);
+        else {
+            //Se recopilan los comentarios
+            cadenaADevolver += "Comentarios:\n";
+            for (String comentario : comentarios) {
+                cadenaADevolver += comentario + "\n";
             }
-        }
-        return datosGenerales;
+        }  
+        cadenaADevolver += " ";
+        return cadenaADevolver;
     }
 }
 
