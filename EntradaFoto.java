@@ -4,39 +4,27 @@ import java.time.temporal.ChronoUnit;
 /**
  * 
  */
-public class EntradaFoto
+public class EntradaFoto extends Entrada
 {
-    private String usuario;
     private String urlImagen;
     private String titulo;
-    private LocalDateTime momentoPublicacion;
-    private int cantidadMeGusta;
-    private ArrayList<String> comentarios;
-
+    
     /**
      * Constructor for objects of class EntradaFoto
      */
     public EntradaFoto(String autor, String url, String titulo)
     {
-
-        urlImagen = url;
-        usuario = autor;
+        super(autor);
         urlImagen = url;
         this.titulo = titulo;
-        momentoPublicacion = LocalDateTime.now();
-        comentarios = new ArrayList<>();
     }
 
     public void meGusta(){
-         cantidadMeGusta ++;
-    }
-
-    public void unLike(){
-
+          meGusta();
     }
 
     public void addComentario(String text){
-        comentarios.add(text);
+        addComentario(text);
     }
 
     public String getUrlImage(){
@@ -47,19 +35,15 @@ public class EntradaFoto
         return titulo;
     }
 
-    public LocalDateTime getMomentoPublicacion(){
-        return momentoPublicacion;
-    }
-
     public String toString(){       
          String cadenaADevolver = "========= ENTRADA FOTO ===\n";
         
-        cadenaADevolver += "Usuario: " + usuario + "\n";
+        cadenaADevolver += "Usuario: " + getUsuario() + "\n";
         cadenaADevolver += "Título foto: " +titulo + "\n";
         cadenaADevolver += "Url de la foto: " +urlImagen + "\n";
-        cadenaADevolver += cantidadMeGusta + " me gusta.\n";
+        cadenaADevolver += getMeGusta() + " me gusta.\n";
         
-        long segundosQueHanPasadoDesdeCreacion = momentoPublicacion.until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
         long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
         long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
         
@@ -69,13 +53,13 @@ public class EntradaFoto
         }
         cadenaADevolver += segundosResiduales + " segundos.\n";       
         
-        if (comentarios.isEmpty()) {
+        if (getComentarios().isEmpty()) {
             cadenaADevolver += "La entrada no tiene comentarios.\n";
         }
         else {
             //Se recopilan los comentarios
             cadenaADevolver += "Comentarios:\n";
-            for (String comentario : comentarios) {
+            for (String comentario : getComentarios()) {
                 cadenaADevolver += comentario + "\n";
             }
         }  

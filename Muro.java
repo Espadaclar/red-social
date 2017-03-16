@@ -39,7 +39,6 @@ public class Muro
     }
 
     public void zzMuestraDatos(){
-
         System.out.println(this);
         System.out.println("=================");
     }
