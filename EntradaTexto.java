@@ -56,6 +56,10 @@ class EntradaTexto extends EntradaComentario {
         return cadenaADevolver; 
     }
 
+    public void mostrarAutorYMensaje(){
+        System.out.println("Autor: " +getUsuario()+ "\nMensaje: " +mensaje);
+    }
+    
     public void zMostrarComentarios(){
         System.out.println(this);
     }

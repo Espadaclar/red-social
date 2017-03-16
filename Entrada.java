@@ -25,10 +25,6 @@ public class Entrada
         cantidadMeGusta ++;
     }
 
-    //      public void addComentario(String text){
-    //         comentarios.add(text);
-    //     }
-
     public String getUsuario(){
         return usuario;
     }
@@ -36,10 +32,6 @@ public class Entrada
     public int getMeGusta(){
         return cantidadMeGusta;
     }
-
-    //     public ArrayList<String> getComentarios(){
-    //         return comentarios;
-    //     }
 
     public LocalDateTime getMomentoPublicacion(){
         return momentoPublicacion;
