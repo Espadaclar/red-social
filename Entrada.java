@@ -9,14 +9,14 @@ public class Entrada
     private String usuario;
     private LocalDateTime momentoPublicacion;
     private int cantidadMeGusta;
-    private ArrayList<String> comentarios;
+    // private ArrayList<String> comentarios;
     /**
      * Constructor for objects of class Entrada
      */
     public Entrada(String autor)
     {
         usuario = autor;
-        comentarios = new ArrayList<>();
+        //comentarios = new ArrayList<>();
         cantidadMeGusta = 0;
         momentoPublicacion = LocalDateTime.now(); 
     }
@@ -24,11 +24,11 @@ public class Entrada
     public void meGusta(){
         cantidadMeGusta ++;
     }
-    
-     public void addComentario(String text){
-        comentarios.add(text);
-    }
-    
+
+    //      public void addComentario(String text){
+    //         comentarios.add(text);
+    //     }
+
     public String getUsuario(){
         return usuario;
     }
@@ -36,11 +36,11 @@ public class Entrada
     public int getMeGusta(){
         return cantidadMeGusta;
     }
-    
-    public ArrayList<String> getComentarios(){
-        return comentarios;
-    }
-    
+
+    //     public ArrayList<String> getComentarios(){
+    //         return comentarios;
+    //     }
+
     public LocalDateTime getMomentoPublicacion(){
         return momentoPublicacion;
     }
@@ -49,14 +49,6 @@ public class Entrada
         return "";
     }    
 }
-
-
-
-
-
-
-
-
 
 
 

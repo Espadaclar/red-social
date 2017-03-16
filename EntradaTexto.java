@@ -6,7 +6,7 @@ import java.time.temporal.ChronoUnit;
 /**
  *
  */
-class EntradaTexto extends Entrada {    
+class EntradaTexto extends EntradaComentario {    
     private String mensaje;
     
     public EntradaTexto(String autor, String texto){
@@ -14,12 +14,16 @@ class EntradaTexto extends Entrada {
         mensaje = texto;
     }
 
+    public void meGusta(){
+          super.meGusta();
+    }
+    
     public String getMensaje(){
         return mensaje;
     }
        
      public void addComentario(String text){
-        addComentario( text);
+        super.addComentario( text);
     }
     
     public String toString(){
