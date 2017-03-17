@@ -23,15 +23,15 @@ public class EntradaUnionAGrupo extends Entrada
         return grupo;
     }
     
-     public void meGusta(){
-          super.meGusta();
+     public void meGustaMucho(){
+            meGusta();
     }    
     
     public String toString(){
          String cadenaADevolver = "========= GRUPO ===\n";
         
-        cadenaADevolver += "Usuario: " + getUsuario() + "\n";
-        cadenaADevolver += "Grupo: " +grupo + "\n";
+        cadenaADevolver += "El usuario: " + getUsuario() + "\n";
+        cadenaADevolver += "se ha unido al grupo: " +grupo + "\n";
         cadenaADevolver += getMeGusta() + " me gusta.\n";
         
         long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);

@@ -66,3 +66,15 @@ class EntradaTexto extends EntradaComentario {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,7 @@ public class Muro
 {
     private ArrayList<EntradaTexto> mensajes;
     private ArrayList<EntradaFoto> fotos;
+    private ArrayList<EntradaUnionAGrupo> unionAGrupo;
     /**
      * Constructor for objects of class Muro
      */
@@ -13,6 +14,7 @@ public class Muro
     {
         mensajes = new ArrayList<>();
         fotos = new ArrayList<>();
+        unionAGrupo = new ArrayList<>();
     }
 
     public void addEntradaTexto(EntradaTexto entradaTexto){
@@ -21,6 +23,10 @@ public class Muro
 
     public void addEntradaFoto(EntradaFoto entradaFoto){
         fotos.add(entradaFoto);
+    }
+    
+    public void addEntradaUnionAGrupo(EntradaUnionAGrupo entradaNameGrupo){
+        unionAGrupo.add(entradaNameGrupo);
     }
 
     public String toString(){
@@ -34,7 +40,12 @@ public class Muro
         for (EntradaFoto entrada : fotos)
         {
             cadenaADevolver += entrada + "\n";
-        }                
+        }  
+        
+        for (EntradaUnionAGrupo entradaGrupo : unionAGrupo)
+        {
+            cadenaADevolver += unionAGrupo + "\n";
+        }  
         return cadenaADevolver;
     }
 
