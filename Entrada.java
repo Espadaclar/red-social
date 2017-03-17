@@ -39,7 +39,11 @@ public class Entrada
 
     public String toString(){
         return "";
-    }    
+    }  
+    
+    public void mostrar(){
+        
+    }
 }
 
 

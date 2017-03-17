@@ -60,7 +60,7 @@ class EntradaTexto extends EntradaComentario {
         System.out.println("Autor: " +getUsuario()+ "\nMensaje: " +mensaje);
     }
     
-    public void zMostrarComentarios(){
+    public void mostrar(){
         System.out.println(this);
     }
 

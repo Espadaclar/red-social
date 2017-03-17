@@ -46,7 +46,7 @@ public class EntradaUnionAGrupo extends Entrada
         return cadenaADevolver; 
     }
     
-    public void muestrDatos(){
+    public void mostrar(){
         System.out.println(this);
     }
 }

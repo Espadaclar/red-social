@@ -66,6 +66,10 @@ public class EntradaFoto extends EntradaComentario
         cadenaADevolver += " ";
         return cadenaADevolver;
     }
+    
+    public void mostrar(){
+        System.out.println(this);
+    }
 }
 
 
