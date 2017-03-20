@@ -18,11 +18,28 @@ public class EntradaComentario  extends Entrada
         comentarios = new ArrayList<>();
     }
 
-     public void addComentario(String text){
+    public void addComentario(String text){
         comentarios.add(text);
     }
-    
+
     public ArrayList<String> getComentarios(){
         return comentarios;
+    }
+
+    public String toString(){
+        
+        String datos = "";
+        datos += super.toString();
+         if (getComentarios().isEmpty()) {
+            datos += "La entrada no tiene comentarios.\n";
+        }
+        else {
+            //Se recopilan los comentarios
+            datos += "Comentarios:\n";
+            for (String comentario : getComentarios()) {
+                datos += comentario + "\n";
+            }
+        } 
+        return datos;
     }
 }

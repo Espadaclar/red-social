@@ -8,7 +8,7 @@ public class EntradaFoto extends EntradaComentario
 {
     private String urlImagen;
     private String titulo;
-    
+
     /**
      * Constructor for objects of class EntradaFoto
      */
@@ -20,7 +20,7 @@ public class EntradaFoto extends EntradaComentario
     }
 
     public void meGusta(){
-          super.meGusta();
+        super.meGusta();
     }
 
     public void addComentario(String text){
@@ -36,45 +36,19 @@ public class EntradaFoto extends EntradaComentario
     }
 
     public String toString(){       
-         String cadenaADevolver = "========= ENTRADA FOTO ===\n";
-        
-        cadenaADevolver += "Usuario: " + getUsuario() + "\n";
+        String cadenaADevolver = "========= ENTRADA FOTO ===\n";
         cadenaADevolver += "Título foto: " +titulo + "\n";
         cadenaADevolver += "Url de la foto: " +urlImagen + "\n";
-        cadenaADevolver += getMeGusta() + " me gusta.\n";
-        
-        long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
-        long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
-        long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
-        
-        cadenaADevolver += "Hace ";
-        if (minutosQueHanPasadoDesdeCreacion > 0) {
-            cadenaADevolver += minutosQueHanPasadoDesdeCreacion + " minutos ";
-        }
-        cadenaADevolver += segundosResiduales + " segundos.\n";       
-        
-        if (getComentarios().isEmpty()) {
-            cadenaADevolver += "La entrada no tiene comentarios.\n";
-        }
-        else {
-            //Se recopilan los comentarios
-            cadenaADevolver += "Comentarios:\n";
-            for (String comentario : getComentarios()) {
-                cadenaADevolver += comentario + "\n";
-            }
-        }  
+        cadenaADevolver += super.toString()+ "\n";
+  
         cadenaADevolver += " ";
         return cadenaADevolver;
     }
-    
+
     public void mostrar(){
         System.out.println(this);
     }
 }
-
-
-
-
 
 
 

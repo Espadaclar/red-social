@@ -38,11 +38,24 @@ public class Entrada
     }
 
     public String toString(){
-        return "";
+        String datos = "";
+        datos += " Usuario: " +usuario+ "\n";
+        datos += " Cantidad me gusta: " +cantidadMeGusta+ "\n";
+        long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
+        long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
+        
+        datos += " Hace ";
+        if (minutosQueHanPasadoDesdeCreacion > 0) {
+            datos += minutosQueHanPasadoDesdeCreacion + " minutos ";
+        }
+        datos += segundosResiduales + " segundos.\n";       
+        
+        return datos;
     }  
     
-    public void mostrar(){
-        
+    public void mostrar(){        
+        System.out.println(this);        
     }
 }
 
