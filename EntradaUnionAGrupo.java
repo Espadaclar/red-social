@@ -43,6 +43,10 @@ public class EntradaUnionAGrupo extends Entrada
         return cadenaADevolver; 
     }
 
+    public void mostraDatosExclusivos(){
+        System.out.println(grupo);
+    }
+    
     public void mostrar(){
         System.out.println(this);
     }

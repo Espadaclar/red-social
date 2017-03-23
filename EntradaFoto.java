@@ -54,8 +54,12 @@ public class EntradaFoto extends EntradaComentario
         return cadenaADevolver;
     }
 
-    public void mostrar(){
+    public void mostrarDatos(){
         System.out.println(this);
+    }
+    
+    public void mostraDatosExclusivos(){
+        System.out.println(urlImagen+ "\n" +titulo);
     }
 }
 

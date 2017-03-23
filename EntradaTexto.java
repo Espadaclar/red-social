@@ -46,6 +46,10 @@ class EntradaTexto extends EntradaComentario {
         System.out.println("Autor: " +getUsuario()+ "\nMensaje: " +mensaje);
     }
 
+    public void mostraDatosExclusivos(){
+        System.out.println(mensaje);
+    }
+    
     public void mostrar(){
         System.out.println(this);
     }
