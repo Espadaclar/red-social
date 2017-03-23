@@ -26,6 +26,14 @@ class EntradaTexto extends EntradaComentario {
         super.addComentario( text);
     }
 
+    /**
+     * getCantidadDeDatosAsociadosALaEntrada que devuelva el número de datos asociado a cada entrada (en caso de EntradaTexto, 
+     * por ejemplo, 5: el usuario, la cantidad de me gusta, el momento de publicacion, los comentarios y el mensaje). 
+     */
+    public int getCantidadDeDatosAsociadosALaEntrada(){
+        return 5;
+    }
+    
     public String toString(){
         String cadenaADevolver = "========= ENTRADA TEXTO ===\n";
 

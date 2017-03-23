@@ -36,7 +36,15 @@ public class Entrada
     public LocalDateTime getMomentoPublicacion(){
         return momentoPublicacion;
     }
-
+    
+    
+    /**
+     * para que en las otras clases funcione este mt, también lo ponemos aquí. para que las clases hijas pudedan sobreescribirlo. 
+     */
+    public int getCantidadDeDatosAsociadosALaEntrada(){
+        return 4454567;
+    }
+    
     public String toString(){
         String datos = "";
         datos += " Usuario: " +usuario+ "\n";

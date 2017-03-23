@@ -17,6 +17,18 @@ public class Muro
         conjuntoDeEntradas.add(entrada);
     }
 
+    
+    /**
+     * verCantidadDatosPorEntrada que nos muestre por pantalla tantas líneas como entradas haya indicando por 
+     * cada línea la cantidad de datos asociados a esa entrada.
+     */
+    public void verCantidadDatosPorEntrada(){
+        for(Entrada entrada: conjuntoDeEntradas){
+            System.out.println(
+            entrada.getCantidadDeDatosAsociadosALaEntrada());
+        }
+    }
+    
     public String toString(){
         String cadenaADevolver = "";
 

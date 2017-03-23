@@ -26,6 +26,14 @@ public class EntradaComentario  extends Entrada
         return comentarios;
     }
 
+    /**
+     * getCantidadDeDatosAsociadosALaEntrada que devuelva el número de datos asociado a cada entrada (en caso de EntradaTexto, 
+     * por ejemplo, 5: el usuario, la cantidad de me gusta, el momento de publicacion, los comentarios y el mensaje). 
+     */
+    public  int getCantidadDeDatosAsociadosALaEntrada(){
+        return 4;
+    }
+    
     public String toString(){
         
         String datos = "";
