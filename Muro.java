@@ -37,26 +37,34 @@ public class Muro
      * El primer parámetro indicamos el tipo de posts que queremos mostrar y en el segundo el autor de dichos post.
      * Si algún parámetro vale null se entiende que no se quiere filtrar por ese filtro.
      */
-    public void mostrarDatosExclusivosEntradasFiltradas(String tipoEntrada, String autor){
+    public void mostrarDatosExclusivosEntradasFiltradas(String nombreEntrada, String nombreUsuario){
+        if(nombreEntrada != null && nombreUsuario != null){
+            int cont = 1;
+            for(Entrada entrada: conjuntoDeEntradas){
 
-        for (Entrada entrada : conjuntoDeEntradas)
-        {
-            if(tipoEntrada.equals("EntradaFoto") && entrada.getUsuario().equals(autor)){
-                if(entrada instanceof EntradaFoto){ // instanceof comprueba que la entrada es de tipo EntradaFoto
-                    ((EntradaFoto)entrada).mostraDatosExclusivos(); //convierte a la VL entrada en EntradaFoto
-                }
-            }
-            if(tipoEntrada.equals("EntradaTexto") && entrada.getUsuario().equals(autor)){
                 if(entrada instanceof EntradaTexto){
-                    ((EntradaTexto)entrada).mostraDatosExclusivos();
+                    System.out.println("===Datos filtrados de EntradaTexto, entrada nº " +cont+ "\n");
+                    if(entrada.getUsuario().equals(nombreUsuario)){
+                        ((EntradaTexto)entrada).mostraDatosExclusivos();
+                        cont ++;
+                    }
                 }
-            }
-            if(tipoEntrada.equals("EntradaUnionAGrupo") && entrada.getUsuario().equals(autor)){
-                if(entrada instanceof EntradaUnionAGrupo){
-                    ((EntradaUnionAGrupo)entrada).mostraDatosExclusivos();
+                else if(entrada instanceof EntradaFoto){// instanceof comprueba que la entrada es de tipo EntradaFoto
+                    System.out.println("===Datos filtrados de EntradaFoto, entrada nº " +cont+ "\n");
+                    if(entrada.getUsuario().equals(nombreUsuario)){
+                        ((EntradaFoto)entrada).mostraDatosExclusivos();//convierte a la VL entrada en EntradaFoto
+                        cont ++;
+                    }
                 }
-            }
+                else if(entrada instanceof EntradaUnionAGrupo){
+                    System.out.println("===Datos filtrados de EntradaUnionAGrupo, entrada nº " +cont+ "\n");
+                    if(entrada.getUsuario().equals(nombreUsuario)){
+                        ((EntradaUnionAGrupo)entrada).mostraDatosExclusivos();
+                    }
+                }
 
+            }
+            System.out.println("===========================");
         }
     }
 
