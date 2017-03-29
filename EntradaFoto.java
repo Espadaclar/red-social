@@ -42,27 +42,23 @@ public class EntradaFoto extends EntradaComentario
     public int getCantidadDeDatosAsociadosALaEntrada(){
         return 6;
     }
-    
+
     public String toString(){       
         String cadenaADevolver = "========= ENTRADA FOTO ===\n";
         cadenaADevolver += super.toString()+ "\n";
         cadenaADevolver += "Título foto: " +titulo + "\n";
-        cadenaADevolver += "Url de la foto: " +urlImagen + "\n";
-        
-  
-        cadenaADevolver += " ";
+        //cadenaADevolver += "Url de la foto: " +urlImagen ;
+         cadenaADevolver += "Url de la foto: \n";
+          cadenaADevolver += urlImagen ;
         return cadenaADevolver;
     }
 
     public void mostrarDatos(){
         System.out.println(this);
     }
-    
+
     public void mostraDatosExclusivos(){
         System.out.println(urlImagen+ "\n" +titulo);
     }
 }
-
-
-
 

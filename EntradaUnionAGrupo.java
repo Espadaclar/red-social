@@ -38,7 +38,8 @@ public class EntradaUnionAGrupo extends Entrada
     public String toString(){
         String cadenaADevolver = "========= ENTRADA GRUPO ===\n";
         cadenaADevolver += "Se ha unido al grupo: " +grupo + "\n";
-        cadenaADevolver += super.toString()+ "\n";
+        cadenaADevolver += super.toString();
+        //cadenaADevolver += super.toString()+ "\n";
        
         return cadenaADevolver; 
     }

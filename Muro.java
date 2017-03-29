@@ -1,3 +1,9 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import java.util.ArrayList;
 /**
  * 
@@ -11,6 +17,7 @@ public class Muro
     public Muro()
     {
         conjuntoDeEntradas = new ArrayList<>();
+
     }
 
     public void addEntradaTexto(Entrada entrada){
@@ -39,32 +46,115 @@ public class Muro
      */
     public void mostrarDatosExclusivosEntradasFiltradas(String nombreEntrada, String nombreUsuario){
         if(nombreEntrada != null && nombreUsuario != null){
-            int cont = 1;
             for(Entrada entrada: conjuntoDeEntradas){
-
                 if(entrada instanceof EntradaTexto){
-                    System.out.println("===Datos filtrados de EntradaTexto, entrada nº " +cont+ "\n");
                     if(entrada.getUsuario().equals(nombreUsuario)){
                         ((EntradaTexto)entrada).mostraDatosExclusivos();
-                        cont ++;
                     }
                 }
                 else if(entrada instanceof EntradaFoto){// instanceof comprueba que la entrada es de tipo EntradaFoto
-                    System.out.println("===Datos filtrados de EntradaFoto, entrada nº " +cont+ "\n");
                     if(entrada.getUsuario().equals(nombreUsuario)){
                         ((EntradaFoto)entrada).mostraDatosExclusivos();//convierte a la VL entrada en EntradaFoto
-                        cont ++;
                     }
                 }
                 else if(entrada instanceof EntradaUnionAGrupo){
-                    System.out.println("===Datos filtrados de EntradaUnionAGrupo, entrada nº " +cont+ "\n");
                     if(entrada.getUsuario().equals(nombreUsuario)){
                         ((EntradaUnionAGrupo)entrada).mostraDatosExclusivos();
                     }
                 }
-
             }
-            System.out.println("===========================");
+        }
+    }
+
+    public void mostrarMuroEnNavegador(){
+        // Obtenemos una referencia a una ruta donde estará el archivo
+        Path rutaArchivo = Paths.get("prueba.html");
+
+        // Abrimos el archivo, escribimos en él y lo cerramos. Si se produce una
+        try  
+        {
+            BufferedWriter archivo = Files.newBufferedWriter(rutaArchivo);
+            String cadena[] = toString().split("\n"); 
+            
+            archivo.write("<html>");
+            archivo.write("<head>");
+            //enlace a una página css, para dar formato a la presentación.
+            
+            archivo.write("</head>");
+            archivo.write("<link href=\"p1.css\" type=\"text/css\" rel=\"stylesheet\"/> "); 
+            archivo.write("<body>");
+            //variable para ir recorriendo el Array cadena.
+            int i = 0;
+            //aux solo interactua  la 1º vez que isntanceof sea true, dando a i el valor de -1. En cuanto salga del
+            // del if en el que se encuentra. i toma el valor de 0. Esto es debido a que todos los if con instanceof
+            // tiene que comenzar con i ++, porque no se sabe el tipo de entrada que se ejecutará en 1º lugar.
+            int aux = 0;
+            for(Entrada entrada: conjuntoDeEntradas){
+                if(entrada instanceof EntradaTexto){
+                    if(aux == 0){ 
+                        i = -1;
+                        aux ++;
+                    }
+                    i ++;
+                    archivo.write("<h2>" +cadena[i]+ "</h2>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                }
+                else if(entrada instanceof EntradaFoto){// instanceof comprueba que la entrada es de tipo EntradaFoto
+                    if(aux == 0){ 
+                        i = -1;
+                        aux ++;
+                    }
+                    i ++;
+                    archivo.write("<h2>" +cadena[i]+ "</h2>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                                         i ++;
+                                             archivo.write("<p> <a href=\"" +cadena[i]+"\"" + ">"+cadena[i]+"</a></p>"  );
+                }
+                else if(entrada instanceof EntradaUnionAGrupo){
+                    if(aux == 0){ 
+                        i = -1;
+                        aux ++;
+                    }
+                    i ++;
+                    archivo.write("<h2>" +cadena[i]+ "</h2>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+
+                }
+            }
+            archivo.write("</body>");
+            archivo.write("</html>");
+            archivo.close();
+        }
+        catch (IOException excepcion) {
+            // Mostramos por pantalla la excepción que se ha producido
+            System.out.println(excepcion.toString());
         }
     }
 
@@ -82,5 +172,13 @@ public class Muro
         System.out.println(this);
         System.out.println("=================");
     }
-}
 
+    public void zzMuestraDatosArrayList(){
+        for(int i = 0; i < conjuntoDeEntradas.size(); i ++ ){
+            System.out.println(conjuntoDeEntradas.get(i));
+        }
+
+        System.out.println("=================");
+    }
+
+}

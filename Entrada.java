@@ -36,35 +36,36 @@ public class Entrada
     public LocalDateTime getMomentoPublicacion(){
         return momentoPublicacion;
     }
-        
+
     /**
      * para que en las otras clases funcione este mt, también lo ponemos aquí. para que las clases hijas pudedan sobreescribirlo. 
      */
     public int getCantidadDeDatosAsociadosALaEntrada(){
         return 4454567;
     }
-    
+
     public String toString(){
-        String datos = "";
-        datos += " Usuario: " +usuario+ "\n";
+        String datos = " Usuario: " +usuario+ "\n";
+        //         String datos = "";
+        //         datos += " Usuario: " +usuario+ "\n";
         datos += " Cantidad me gusta: " +cantidadMeGusta+ "\n";
         long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
         long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
         long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
-        
+
         datos += " Hace ";
         if (minutosQueHanPasadoDesdeCreacion > 0) {
             datos += minutosQueHanPasadoDesdeCreacion + " minutos ";
         }
-        datos += segundosResiduales + " segundos.\n";       
-        
+        datos += segundosResiduales + " segundos.";
+        //datos += segundosResiduales + " segundos.\n";       
+
         return datos;
     }  
-    
+
     public void mostrar(){        
         System.out.println(this);        
     }
 }
-
 
 

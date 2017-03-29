@@ -33,13 +33,11 @@ public class EntradaComentario  extends Entrada
     public  int getCantidadDeDatosAsociadosALaEntrada(){
         return 4;
     }
-    
+
     public String toString(){
-        
-        String datos = "";
-        datos += super.toString();
-         if (getComentarios().isEmpty()) {
-            datos += "La entrada no tiene comentarios.\n";
+        String datos = super.toString()+ "\n";
+        if (getComentarios().isEmpty()) {
+            datos += "La entrada no tiene comentarios. ";
         }
         else {
             //Se recopilan los comentarios
