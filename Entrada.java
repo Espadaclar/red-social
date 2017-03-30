@@ -44,11 +44,16 @@ public class Entrada
         return 4454567;
     }
 
-    public String toString(){
-        String datos = " Usuario: " +usuario+ "\n";
-        //         String datos = "";
-        //         datos += " Usuario: " +usuario+ "\n";
-        datos += " Cantidad me gusta: " +cantidadMeGusta+ "\n";
+    public String getHTMLEntrada(){
+        String a = "";
+        a += "<p> Usuario: " +usuario+ "</p>";
+        a += "<p> Tiempo transcurrido: " +tiempoTranscurrido()+ "</p>";
+        a += "<p> Cantidad meGusta: " +usuario+ "</p>";
+        return a;
+    }
+
+    public String tiempoTranscurrido(){
+        String datos = "";
         long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
         long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
         long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
@@ -58,8 +63,13 @@ public class Entrada
             datos += minutosQueHanPasadoDesdeCreacion + " minutos ";
         }
         datos += segundosResiduales + " segundos.";
-        //datos += segundosResiduales + " segundos.\n";       
+        return datos;
+    }
 
+    public String toString(){
+        String datos = " Usuario: " +usuario+ "\n";
+        datos += " Cantidad me gusta: " +cantidadMeGusta+ "\n";
+        datos += tiempoTranscurrido();       
         return datos;
     }  
 
@@ -67,5 +77,4 @@ public class Entrada
         System.out.println(this);        
     }
 }
-
 
