@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 /**
- * 
+ * @autor franciscoJavier.
  */
 public class Entrada
 {
@@ -48,7 +48,7 @@ public class Entrada
         String a = "";
         a += "<p> Usuario: " +usuario+ "</p>";
         a += "<p> Tiempo transcurrido: " +tiempoTranscurrido()+ "</p>";
-        a += "<p> Cantidad meGusta: " +usuario+ "</p>";
+        a += "<p> Cantidad meGusta: " +cantidadMeGusta+ "</p>";
         return a;
     }
 

@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 /**
- * Write a description of class EntradaComentario here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @ franciscoJavier
  */
 public class EntradaComentario  extends Entrada
 {
@@ -58,7 +55,7 @@ public class EntradaComentario  extends Entrada
             //Se recopilan los comentarios
             a += "<p> Comentarios: </p>";
             for (String comentario : getComentarios()) {
-                a += "<p>" +comentario + "</p>";
+                a += "<p class=\"clase\">" +comentario + "</p>";
             }
         } 
         return a;

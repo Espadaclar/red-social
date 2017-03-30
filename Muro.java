@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 /**
- * 
+ * @ autor franciscoJavier
  */
 public class Muro
 {
@@ -18,7 +18,6 @@ public class Muro
     public Muro()
     {
         conjuntoDeEntradas = new ArrayList<>();
-
     }
 
     public void addEntradaTexto(Entrada entrada){
@@ -87,26 +86,23 @@ public class Muro
             archivo.write("<link href=\"p1.css\" type=\"text/css\" rel=\"stylesheet\"/> "); 
             archivo.write("</head>");
             archivo.write("<body>");
-            //variable para ir recorriendo el Array cadena.
 
-            int i = 0;
-            //aux solo interactua  la 1º vez que isntanceof sea true, dando a i el valor de -1. En cuanto salga del
-            // del if en el que se encuentra. i toma el valor de 0. Esto es debido a que todos los if con instanceof
-            // tiene que comenzar con i ++, porque no se sabe el tipo de entrada que se ejecutará en 1º lugar.
-            int aux = 0;
             archivo.write("<h1>   DATOS DE TODAS LAS ENTRADAS. ______________________  "  +fecha+    " </h1>");
 
             for(Entrada entrada: conjuntoDeEntradas){
                 if(entrada instanceof EntradaTexto){
+                    archivo.write("<h2>=== ENTRADAS DE TEXTO === </h2>");
                     archivo.write(((EntradaTexto)entrada).getHTMLTexto());
                     //((EntradaTexto)entrada).getHTMLTexto();
                 }
 
                 if(entrada instanceof EntradaFoto){// instanceof comprueba que la entrada es de tipo EntradaFoto
-                   archivo.write(((EntradaFoto)entrada).getHTMLFoto());
+                   archivo.write("<h2>=== ENTRADAS DE FOTOS === </h2>");
+                    archivo.write(((EntradaFoto)entrada).getHTMLFoto());
                     
                 }
                 if(entrada instanceof EntradaUnionAGrupo){
+                    archivo.write("<h2>=== ENTRADAS A GRUPO === </h2>");
                     archivo.write(((EntradaUnionAGrupo)entrada).getHTMLGrupo());
                     
                 }

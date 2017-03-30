@@ -1,10 +1,7 @@
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 /**
- * Write a description of class EntradaUnionAGrupo here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @ autor franciscoJavier
  */
 public class EntradaUnionAGrupo extends Entrada
 {
@@ -45,8 +42,8 @@ public class EntradaUnionAGrupo extends Entrada
     }
 
     public String getHTMLGrupo(){
-        String a = super.getHTMLEntrada();
-        a += "<p> Grupo: "+grupo +  "</p>";
+        String a = "<p> Nombre del grupo: "+grupo +  "</p>";
+        a += super.getHTMLEntrada();
         return a;
     }
     

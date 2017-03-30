@@ -4,7 +4,7 @@ import java.time.*;
 import java.time.temporal.ChronoUnit;
 
 /**
- *
+ *@ autor franciscoJavier
  */
 class EntradaTexto extends EntradaComentario {    
     private String mensaje;
@@ -45,7 +45,7 @@ class EntradaTexto extends EntradaComentario {
     public String getHTMLTexto(){
         String a = "";
         a += super.getHTMLComentario();
-        a += "<p> Titulo: " +mensaje+ "</p>";       
+        a += "<p> Mensaje: " +mensaje+ "</p>";       
         return a;
     }
     

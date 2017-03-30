@@ -7,27 +7,43 @@
 
 body{
 			font-family: #00ffffarial;
-			background-color: #ccff00;
-			font-size: 12pt;
+			
+			background-image: url(http://3.bp.blogspot.com/-r7XwslNU8fY/UbczbxQe7SI/AAAAAAAAdaQ/ebOaJ8uJHPY/s1600/cielo+y+nubes+vistas+desde+arriba.jpg);
+			font-size: 15pt;
 			}
 			
 			h1
 			{
-			font-size: 18pt;
-			color: black;
+
+			color:white;
 			font-style: oblique;
 			}
 	
 			h2
 			{
 			font-family: times new roman;
-			font-size: 16pt;
-			color:  #ff0000;
+			font-size: 26pt;
+			color:red;
 			font-weight:bold;
 			}
+			
 			p
 			{
 			text-align: justify;
-			color: black;
+			color:white;
 			font-weight:bold;
 			}
+			
+			.clase
+			{
+
+			color:#ffff00;
+			font-style: oblique;
+			}
+			
+			
+			#escuson{
+		background-color:  #ff0000;
+		width: 60%;
+		
+		}
