@@ -98,64 +98,17 @@ public class Muro
 
             for(Entrada entrada: conjuntoDeEntradas){
                 if(entrada instanceof EntradaTexto){
-                    if(aux == 0){ 
-                        i = -1;
-                        aux ++;
-                    }
-                    i ++;
-                    archivo.write("<h2>" +cadena[i]+ "</h2>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    archivo.write(((EntradaTexto)entrada).getHTMLTexto());
+                    //((EntradaTexto)entrada).getHTMLTexto();
                 }
 
                 if(entrada instanceof EntradaFoto){// instanceof comprueba que la entrada es de tipo EntradaFoto
-                    if(aux == 0){ 
-                        i = -1;
-                        aux ++;
-                    }
-                    //archivo.write("<div id= \"escuson\" >" );
-                    i ++;
-                    archivo.write("<h2>" +cadena[i]+ "</h2>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p><a href=\" " +cadena[i]+ "\" " +  ">" +cadena[i]+ "</a></p>"  );
-                    //<a href="http://www.html.net/">Desde aquí enlazamos con HTML.net</a> 
-                    // archivo.write("</div>" );
+                   archivo.write(((EntradaFoto)entrada).getHTMLFoto());
+                    
                 }
                 if(entrada instanceof EntradaUnionAGrupo){
-                    if(aux == 0){ 
-                        i = -1;
-                        aux ++;
-                    }
-                    i ++;
-                    archivo.write("<h2>" +cadena[i]+ "</h2>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    archivo.write(((EntradaUnionAGrupo)entrada).getHTMLGrupo());
+                    
                 }
             }
             archivo.write("<body>");

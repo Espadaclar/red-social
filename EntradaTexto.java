@@ -42,6 +42,13 @@ class EntradaTexto extends EntradaComentario {
         return cadenaADevolver; 
     }
 
+    public String getHTMLTexto(){
+        String a = "";
+        a += super.getHTMLComentario();
+        a += "<p> Titulo: " +mensaje+ "</p>";       
+        return a;
+    }
+    
     public void mostrarAutorYMensaje(){
         System.out.println("Autor: " +getUsuario()+ "\nMensaje: " +mensaje);
     }

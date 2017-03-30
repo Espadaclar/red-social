@@ -13,13 +13,11 @@ import org.junit.Test;
  */
 public class MuroTest
 {
-    private EntradaFoto entradaF1;
-    private EntradaFoto entradaF2;
-    private EntradaTexto entradaT1;
-    private EntradaTexto entradaT2;
     private EntradaUnionAGrupo entradaU1;
-    private EntradaUnionAGrupo entradaU2;
+    private EntradaFoto entradaF1;
+    private EntradaTexto entradaT1;
     private Muro muro1;
+    private EntradaFoto entradaF2;
 
     /**
      * Default constructor for test class MuroTest
@@ -36,19 +34,16 @@ public class MuroTest
     @Before
     public void setUp()
     {
-        entradaF1 = new EntradaFoto("Jonas", "http://www.significadodelossueños.net/wp-content/uploads/2013/10/So%C3%B1ar-con-muchedumbre.gif", "Sueños");
-        entradaF2 = new EntradaFoto("Aurora", "http://lapatriaenlinea.com/fotos/07_2016/263754_1_31.jpg", "Patria");
-        entradaT1 = new EntradaTexto("Ana", "La noche del pasado.");
-        entradaT2 = new EntradaTexto("Gemma", "Monta el caballo sin que se note");
-        entradaU1 = new EntradaUnionAGrupo("Juán", "Los Amigos");
-        entradaU2 = new EntradaUnionAGrupo("Susana", "Actorres");
+        entradaU1 = new EntradaUnionAGrupo("Ana", "Las Amigas");
+        entradaF1 = new EntradaFoto("Jonas.", "https://i2.wp.com/www.fierasdelaingenieria.com/wp-content/uploads/2013/08/tren-rapido.jpg?resize=720%2C340", "Yendo a Barcelona.");
+        entradaT1 = new EntradaTexto("Enar", "Para mañana por la mañana.");
         muro1 = new Muro();
-        muro1.addEntradaTexto(entradaF1);
-        muro1.addEntradaTexto(entradaF2);
-        muro1.addEntradaTexto(entradaT1);
-        muro1.addEntradaTexto(entradaT2);
+        entradaF2 = new EntradaFoto("Gemma", "http://puzzles.tuspuzzles.es/images/original/avion-al-atardecer-54b2aeb58f8bb.jpg", "Volando voy");
         muro1.addEntradaTexto(entradaU1);
-        muro1.addEntradaTexto(entradaU2);
+        muro1.addEntradaTexto(entradaF1);
+        muro1.addEntradaTexto(entradaT1);
+        muro1.addEntradaTexto(entradaF2);
+        muro1.mostrarMuroEnNavegador();
     }
 
     /**

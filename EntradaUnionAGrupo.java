@@ -44,6 +44,12 @@ public class EntradaUnionAGrupo extends Entrada
         return cadenaADevolver; 
     }
 
+    public String getHTMLGrupo(){
+        String a = super.getHTMLEntrada();
+        a += "<p> Grupo: "+grupo +  "</p>";
+        return a;
+    }
+    
     public void mostraDatosExclusivos(){
         System.out.println(grupo);
     }
