@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 /**
  * 
@@ -66,7 +67,11 @@ public class Muro
         }
     }
 
+    
     public void mostrarMuroEnNavegador(){
+        //para poner fecha actual.
+        LocalDate fecha = LocalDate.now();
+        
         // Obtenemos una referencia a una ruta donde estará el archivo
         Path rutaArchivo = Paths.get("prueba.html");
 
@@ -75,20 +80,22 @@ public class Muro
         {
             BufferedWriter archivo = Files.newBufferedWriter(rutaArchivo);
             String cadena[] = toString().split("\n"); 
-            
+
             archivo.write("<html>");
             archivo.write("<head>");
             //enlace a una página css, para dar formato a la presentación.
-            
-            archivo.write("</head>");
             archivo.write("<link href=\"p1.css\" type=\"text/css\" rel=\"stylesheet\"/> "); 
+            archivo.write("</head>");
             archivo.write("<body>");
             //variable para ir recorriendo el Array cadena.
+
             int i = 0;
             //aux solo interactua  la 1º vez que isntanceof sea true, dando a i el valor de -1. En cuanto salga del
             // del if en el que se encuentra. i toma el valor de 0. Esto es debido a que todos los if con instanceof
             // tiene que comenzar con i ++, porque no se sabe el tipo de entrada que se ejecutará en 1º lugar.
             int aux = 0;
+            archivo.write("<h1>   DATOS DE TODAS LAS ENTRADAS. ______________________  "  +fecha+    " </h1>");
+
             for(Entrada entrada: conjuntoDeEntradas){
                 if(entrada instanceof EntradaTexto){
                     if(aux == 0){ 
@@ -108,47 +115,50 @@ public class Muro
                     i ++;
                     archivo.write("<p>" +cadena[i]+ "</p>");
                 }
-                else if(entrada instanceof EntradaFoto){// instanceof comprueba que la entrada es de tipo EntradaFoto
-                    if(aux == 0){ 
-                        i = -1;
-                        aux ++;
-                    }
-                    i ++;
-                    archivo.write("<h2>" +cadena[i]+ "</h2>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                                         i ++;
-                                             archivo.write("<p> <a href=\"" +cadena[i]+"\"" + ">"+cadena[i]+"</a></p>"  );
-                }
-                else if(entrada instanceof EntradaUnionAGrupo){
-                    if(aux == 0){ 
-                        i = -1;
-                        aux ++;
-                    }
-                    i ++;
-                    archivo.write("<h2>" +cadena[i]+ "</h2>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
-                    i ++;
-                    archivo.write("<p>" +cadena[i]+ "</p>");
 
+                if(entrada instanceof EntradaFoto){// instanceof comprueba que la entrada es de tipo EntradaFoto
+                    if(aux == 0){ 
+                        i = -1;
+                        aux ++;
+                    }
+                    //archivo.write("<div id= \"escuson\" >" );
+                    i ++;
+                    archivo.write("<h2>" +cadena[i]+ "</h2>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p><a href=\" " +cadena[i]+ "\" " +  ">" +cadena[i]+ "</a></p>"  );
+                    //<a href="http://www.html.net/">Desde aquí enlazamos con HTML.net</a> 
+                    // archivo.write("</div>" );
+                }
+                if(entrada instanceof EntradaUnionAGrupo){
+                    if(aux == 0){ 
+                        i = -1;
+                        aux ++;
+                    }
+                    i ++;
+                    archivo.write("<h2>" +cadena[i]+ "</h2>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
+                    i ++;
+                    archivo.write("<p>" +cadena[i]+ "</p>");
                 }
             }
-            archivo.write("</body>");
+            archivo.write("<body>");
             archivo.write("</html>");
             archivo.close();
         }
