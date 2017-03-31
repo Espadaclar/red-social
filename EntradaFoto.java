@@ -52,13 +52,13 @@ public class EntradaFoto extends EntradaComentario
         return cadenaADevolver;
     }
 
-    public String getHTMLFoto(){
+    public String getHTML(){
         String a = "";
         a += "<p> Titulo: " +titulo+ "</p>";
         a += "<p> Direccion URL de foto: </p>";
         a += "<p> " +urlImagen+ "</p>";
         a += "<p> <img src=\""+urlImagen+ "\"> </p>";
-         a += super.getHTMLComentario();
+         a += super.getHTML();
         return a;
     }
     

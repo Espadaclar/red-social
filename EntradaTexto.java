@@ -42,9 +42,9 @@ class EntradaTexto extends EntradaComentario {
         return cadenaADevolver; 
     }
 
-    public String getHTMLTexto(){
+    public String getHTML(){
         String a = "";
-        a += super.getHTMLComentario();
+        a += super.getHTML();
         a += "<p> Mensaje: " +mensaje+ "</p>";       
         return a;
     }

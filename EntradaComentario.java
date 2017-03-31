@@ -46,8 +46,8 @@ public class EntradaComentario  extends Entrada
         return datos;
     }
     
-    public String getHTMLComentario(){
-        String a = super.getHTMLEntrada();
+    public String getHTML(){
+        String a = super.getHTML();
         if (getComentarios().isEmpty()) {
             a += "<p> La entrada no tiene comentarios. </p>";
         }

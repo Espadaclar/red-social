@@ -37,7 +37,7 @@ public  abstract class Entrada
         return momentoPublicacion;
     }
 
-    public String getHTMLEntrada(){
+    public String getHTML(){
         String a = "";
         a += "<p> Usuario: " +usuario+ "</p>";
         a += "<p> Tiempo transcurrido: " +tiempoTranscurrido()+ "</p>";

@@ -93,22 +93,8 @@ public class Muro
             archivo.write("<h1>   DATOS DE TODAS LAS ENTRADAS. ______________________  "  +fecha+    " </h1>");
 
             for(Entrada entrada: conjuntoDeEntradas){
-                if(entrada instanceof EntradaTexto){
-                    archivo.write("<h2>=== ENTRADAS DE TEXTO === </h2>");
-                    archivo.write(((EntradaTexto)entrada).getHTMLTexto());
+                    archivo.write(entrada.getHTML());
                     //((EntradaTexto)entrada).getHTMLTexto();
-                }
-
-                if(entrada instanceof EntradaFoto){// instanceof comprueba que la entrada es de tipo EntradaFoto
-                    archivo.write("<h2>=== ENTRADAS DE FOTOS === </h2>");
-                    archivo.write(((EntradaFoto)entrada).getHTMLFoto());
-
-                }
-                if(entrada instanceof EntradaUnionAGrupo){
-                    archivo.write("<h2>=== ENTRADAS A GRUPO === </h2>");
-                    archivo.write(((EntradaUnionAGrupo)entrada).getHTMLGrupo());
-
-                }
             }
             archivo.write("<body>");
             archivo.write("</html>");
