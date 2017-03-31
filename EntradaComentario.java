@@ -60,4 +60,9 @@ public class EntradaComentario  extends Entrada
         } 
         return a;
     }
+    
+    
+    public void mostrar(){
+        System.out.println(this);
+    }
 }

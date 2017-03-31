@@ -4,7 +4,7 @@ import java.time.temporal.ChronoUnit;
 /**
  * @autor franciscoJavier.
  */
-public class Entrada
+public  abstract class Entrada
 {
     private String usuario;
     private LocalDateTime momentoPublicacion;
@@ -37,13 +37,6 @@ public class Entrada
         return momentoPublicacion;
     }
 
-    /**
-     * para que en las otras clases funcione este mt, también lo ponemos aquí. para que las clases hijas pudedan sobreescribirlo. 
-     */
-    public int getCantidadDeDatosAsociadosALaEntrada(){
-        return 4454567;
-    }
-
     public String getHTMLEntrada(){
         String a = "";
         a += "<p> Usuario: " +usuario+ "</p>";
@@ -72,9 +65,12 @@ public class Entrada
         datos += tiempoTranscurrido();       
         return datos;
     }  
-
-    public void mostrar(){        
-        System.out.println(this);        
-    }
+    
+    /**
+     * para que en las otras clases funcione este mt, también lo ponemos aquí. para que las clases hijas pudedan sobreescribirlo. 
+     */
+    public abstract int getCantidadDeDatosAsociadosALaEntrada();
+    
+    public abstract void mostrar();
 }
 
