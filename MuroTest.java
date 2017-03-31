@@ -43,7 +43,7 @@ public class MuroTest
         muro1.addEntradaTexto(entradaF1);
         muro1.addEntradaTexto(entradaT1);
         muro1.addEntradaTexto(entradaF2);
-        muro1.mostrarMuroEnNavegador();
+        //muro1.mostrarMuroEnNavegador();
     }
 
     /**

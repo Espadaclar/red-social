@@ -6,6 +6,10 @@ import java.nio.file.Paths;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import java.awt.Desktop;
+import java.io.File;
+
 /**
  * @ autor franciscoJavier
  */
@@ -66,11 +70,10 @@ public class Muro
         }
     }
 
-    
     public void mostrarMuroEnNavegador(){
         //para poner fecha actual.
         LocalDate fecha = LocalDate.now();
-        
+
         // Obtenemos una referencia a una ruta donde estará el archivo
         Path rutaArchivo = Paths.get("prueba.html");
 
@@ -97,14 +100,14 @@ public class Muro
                 }
 
                 if(entrada instanceof EntradaFoto){// instanceof comprueba que la entrada es de tipo EntradaFoto
-                   archivo.write("<h2>=== ENTRADAS DE FOTOS === </h2>");
+                    archivo.write("<h2>=== ENTRADAS DE FOTOS === </h2>");
                     archivo.write(((EntradaFoto)entrada).getHTMLFoto());
-                    
+
                 }
                 if(entrada instanceof EntradaUnionAGrupo){
                     archivo.write("<h2>=== ENTRADAS A GRUPO === </h2>");
                     archivo.write(((EntradaUnionAGrupo)entrada).getHTMLGrupo());
-                    
+
                 }
             }
             archivo.write("<body>");
@@ -114,6 +117,17 @@ public class Muro
         catch (IOException excepcion) {
             // Mostramos por pantalla la excepción que se ha producido
             System.out.println(excepcion.toString());
+
+        }
+
+        try {
+
+            File objetofile = new File ("prueba.html");
+            Desktop.getDesktop().open(objetofile);
+
+        }catch (IOException ex) {
+
+            System.out.println(ex);
         }
     }
 
