@@ -15,6 +15,12 @@ public class EntradaUnionAGrupo extends Entrada
         super(usuario);
         this.grupo = grupo;
     }
+    
+    public EntradaUnionAGrupo(String autor, String meGusta, int year, int month, int  dayOfMonth, int  hour, int minute, String nombreGrupo )
+    {
+        super(autor, meGusta, year, month, dayOfMonth, hour, minute );
+        this.grupo = grupo;
+    }
 
     public String getGrupo(){
         return grupo;
@@ -42,7 +48,8 @@ public class EntradaUnionAGrupo extends Entrada
     }
 
     public String getHTML(){
-        String a = "<p> Nombre del grupo: "+grupo +  "</p>";
+        String a = "<h2>=== -- ENTRADA A GRUPO.</h2>";
+        a += "<p> Nombre del grupo: "+grupo +  "</p>";
         a += super.getHTML();
         return a;
     }
@@ -55,7 +62,6 @@ public class EntradaUnionAGrupo extends Entrada
         System.out.println(this);
     }
 }
-
 
 
 

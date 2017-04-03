@@ -19,6 +19,14 @@ public class EntradaFoto extends EntradaComentario
         this.titulo = titulo;
     }
 
+    public EntradaFoto(String autor, String meGusta, int year, int month, int  dayOfMonth, int  hour, int minute,
+                        String url, String titulo)
+    {
+        super(autor, meGusta, year, month, dayOfMonth, hour, minute );
+        urlImagen = url;
+        this.titulo = titulo;
+    }
+    
     public void meGusta(){
         super.meGusta();
     }
@@ -53,7 +61,7 @@ public class EntradaFoto extends EntradaComentario
     }
 
     public String getHTML(){
-        String a = "";
+        String a = "<h2>=== -- ENTRADA DE FOTOS.</h2>";
         a += "<p> Titulo: " +titulo+ "</p>";
         a += "<p> Direccion URL de foto: </p>";
         a += "<p> " +urlImagen+ "</p>";
@@ -62,7 +70,7 @@ public class EntradaFoto extends EntradaComentario
         return a;
     }
     
-    public void mostrarDatos(){
+    public void mostrar(){
         System.out.println(this);
     }
 

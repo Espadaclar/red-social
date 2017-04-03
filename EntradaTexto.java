@@ -13,6 +13,12 @@ class EntradaTexto extends EntradaComentario {
         super(autor);
         mensaje = texto;
     }
+    
+    public EntradaTexto(String autor, String meGusta, int year, int month, int  dayOfMonth, int  hour, 
+            int minute, String mensaje, String comentarios){
+        super(autor, meGusta, year, month, dayOfMonth, hour, minute );
+        this.mensaje = mensaje;
+    }
 
     public void meGusta(){
         super.meGusta();
@@ -43,7 +49,7 @@ class EntradaTexto extends EntradaComentario {
     }
 
     public String getHTML(){
-        String a = "";
+        String a = "<h2>=== -- ENTRADA DE MENSAJES.</h2>";
         a += super.getHTML();
         a += "<p> Mensaje: " +mensaje+ "</p>";       
         return a;

@@ -14,6 +14,12 @@ public class EntradaComentario  extends Entrada
         super(autor);
         comentarios = new ArrayList<>();
     }
+    
+     public EntradaComentario(String autor, String meGusta, int year, int month, int  dayOfMonth, int  hour, int minute )
+    {
+        super(autor, meGusta, year, month, dayOfMonth, hour, minute );
+        comentarios = new ArrayList<>();
+    }
 
     public void addComentario(String text){
         comentarios.add(text);
@@ -45,7 +51,7 @@ public class EntradaComentario  extends Entrada
         } 
         return datos;
     }
-    
+
     public String getHTML(){
         String a = super.getHTML();
         if (getComentarios().isEmpty()) {
@@ -60,8 +66,7 @@ public class EntradaComentario  extends Entrada
         } 
         return a;
     }
-    
-    
+
     public void mostrar(){
         System.out.println(this);
     }
