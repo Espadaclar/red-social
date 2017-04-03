@@ -14,9 +14,8 @@ class EntradaTexto extends EntradaComentario {
         mensaje = texto;
     }
     
-    public EntradaTexto(String autor, String meGusta, int year, int month, int  dayOfMonth, int  hour, 
-            int minute, String mensaje, String comentarios){
-        super(autor, meGusta, year, month, dayOfMonth, hour, minute );
+    public EntradaTexto(String autor, int meGusta,  int  dayOfMonth, int month, int year, int  hour, int minute, String mensaje, String comentarios){
+        super(autor, meGusta,dayOfMonth, month, year, hour, minute );
         this.mensaje = mensaje;
     }
 

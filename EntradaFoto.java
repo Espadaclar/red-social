@@ -19,10 +19,10 @@ public class EntradaFoto extends EntradaComentario
         this.titulo = titulo;
     }
 
-    public EntradaFoto(String autor, String meGusta, int year, int month, int  dayOfMonth, int  hour, int minute,
-                        String url, String titulo)
+    public EntradaFoto(String autor, int meGusta,  int  dayOfMonth, int month, int year, int  hour, int minute,
+                        String url, String titulo, String comentarios)
     {
-        super(autor, meGusta, year, month, dayOfMonth, hour, minute );
+        super(autor, meGusta,dayOfMonth, month, year, hour, minute );
         urlImagen = url;
         this.titulo = titulo;
     }

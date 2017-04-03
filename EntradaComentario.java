@@ -15,9 +15,9 @@ public class EntradaComentario  extends Entrada
         comentarios = new ArrayList<>();
     }
     
-     public EntradaComentario(String autor, String meGusta, int year, int month, int  dayOfMonth, int  hour, int minute )
+     public EntradaComentario(String autor, int meGusta,  int  dayOfMonth, int month, int year, int  hour, int minute )
     {
-        super(autor, meGusta, year, month, dayOfMonth, hour, minute );
+        super(autor, meGusta,dayOfMonth, month, year, hour, minute );
         comentarios = new ArrayList<>();
     }
 

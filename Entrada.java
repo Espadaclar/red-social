@@ -20,12 +20,12 @@ public abstract class Entrada
         cantidadMeGusta = 0;
         momentoPublicacion = LocalDateTime.now(); 
     } 
-    
-     public Entrada(String autor, String meGusta, int year, int month, int  dayOfMonth, int  hour, int minute )
+
+    public Entrada(String autor, int meGusta,  int  dayOfMonth, int month, int year, int  hour, int minute )
     {
         usuario = autor;
         //comentarios = new ArrayList<>();
-        cantidadMeGusta = 0;
+        cantidadMeGusta = meGusta;
         momentoPublicacion = LocalDateTime.of(year, month, dayOfMonth, hour, minute); 
     }
 
@@ -57,7 +57,7 @@ public abstract class Entrada
         a += "<p> Usuario: " +usuario+ "</p>";
         a += "<p> Cantidad meGusta: " +cantidadMeGusta+ "</p>";
         a += "<p> Tiempo transcurrido: " +tiempoTranscurrido()+ "</p>";
-        
+
         return a;
     }
 
@@ -67,11 +67,24 @@ public abstract class Entrada
         long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
         long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
 
+        long horasQueHanPasadoDesdeCreacion =  minutosQueHanPasadoDesdeCreacion / 60;
+        long minutosResidualesDeHoras =  minutosQueHanPasadoDesdeCreacion % 60;
+        long diasQueHanPasadoDesdeCreacion =   horasQueHanPasadoDesdeCreacion / 24;
+        long horasResidualesDeDias = horasQueHanPasadoDesdeCreacion % 24;
+
         datos += "Hace ";
-        if (minutosQueHanPasadoDesdeCreacion > 0) {
-            datos += minutosQueHanPasadoDesdeCreacion + " minutos ";
+        if(diasQueHanPasadoDesdeCreacion > 1){
+            datos += diasQueHanPasadoDesdeCreacion+ " días y " +horasResidualesDeDias+ " horas.";
         }
-        datos += segundosResiduales + " segundos.";
+        else if (horasQueHanPasadoDesdeCreacion > 1) {
+            datos += horasQueHanPasadoDesdeCreacion+ " horas y " + minutosResidualesDeHoras+ " minutos. ";
+        }
+        else{
+            if (minutosQueHanPasadoDesdeCreacion > 0) {
+                datos += minutosQueHanPasadoDesdeCreacion + " minutos ";
+            }
+            datos += segundosResiduales + " segundos.";
+        }
         return datos;
     }
 

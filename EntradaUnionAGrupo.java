@@ -16,9 +16,9 @@ public class EntradaUnionAGrupo extends Entrada
         this.grupo = grupo;
     }
     
-    public EntradaUnionAGrupo(String autor, String meGusta, int year, int month, int  dayOfMonth, int  hour, int minute, String nombreGrupo )
+    public EntradaUnionAGrupo(String autor, int meGusta,  int  dayOfMonth, int month, int year, int  hour, int minute, String grupo )
     {
-        super(autor, meGusta, year, month, dayOfMonth, hour, minute );
+        super(autor, meGusta,dayOfMonth, month, year, hour, minute );
         this.grupo = grupo;
     }
 
