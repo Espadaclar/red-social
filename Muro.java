@@ -145,40 +145,6 @@ public class Muro
         System.out.println("=================");
     }
 
-    
-    public void zzzMostrarMuroEnNavegadorJuanYElena(String usuario){
-        //para poner fecha actual.
-        LocalDate fecha = LocalDate.now();
-
-        // Obtenemos una referencia a una ruta donde estará el archivo
-        Path rutaArchivo = Paths.get("prueba.html");
-
-        // Abrimos el archivo, escribimos en él y lo cerramos. Si se produce una
-        try  
-        {
-            BufferedWriter archivo = Files.newBufferedWriter(rutaArchivo);
-            String cadena[] = toString().split("\n"); 
-
-            archivo.write("<a href=\"https://script.google.com/macros/s/AKfycbzHc3p1twTfyF7o0_cxSwnxSsyOemuHnSu406ly9DZIf5Ck2BA/exec?user="+usuario+ "\"> Ver datos  </a>");
-            archivo.close();
-        }
-        catch (IOException excepcion) {
-            // Mostramos por pantalla la excepción que se ha producido
-            System.out.println(excepcion.toString());
-
-        }
-
-        try {
-
-            File objetofile = new File ("prueba.html");
-            Desktop.getDesktop().open(objetofile);
-
-        }catch (IOException ex) {
-
-            System.out.println(ex);
-        }
-    }
-
     /**
      * lee los datos de las entradas de Juan y de Elena.
      */
@@ -347,12 +313,39 @@ public class Muro
 
             System.out.println(ex);
         }
-        
+    }
+    
+        public void zzzMostrarMuroEnNavegadorJuanYElena(String usuario){
+        //para poner fecha actual.
+        LocalDate fecha = LocalDate.now();
 
-        //         for(int i = 0; i < entradasJuanYElena.size(); i ++){
-        //             System.out.println((i +1)+ " " +entradasJuanYElena.get(i));
-        //         }
-        //         System.out.println(" ");
+        // Obtenemos una referencia a una ruta donde estará el archivo
+        Path rutaArchivo = Paths.get("prueba.html");
+
+        // Abrimos el archivo, escribimos en él y lo cerramos. Si se produce una
+        try  
+        {
+            BufferedWriter archivo = Files.newBufferedWriter(rutaArchivo);
+            String cadena[] = toString().split("\n"); 
+
+            archivo.write("<a href=\"https://script.google.com/macros/s/AKfycbzHc3p1twTfyF7o0_cxSwnxSsyOemuHnSu406ly9DZIf5Ck2BA/exec?user="+usuario+ "\"> Ver datos  </a>");
+            archivo.close();
+        }
+        catch (IOException excepcion) {
+            // Mostramos por pantalla la excepción que se ha producido
+            System.out.println(excepcion.toString());
+
+        }
+
+        try {
+
+            File objetofile = new File ("prueba.html");
+            Desktop.getDesktop().open(objetofile);
+
+        }catch (IOException ex) {
+
+            System.out.println(ex);
+        }
     }
 }
 
