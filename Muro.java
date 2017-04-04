@@ -76,6 +76,7 @@ public class Muro
     }
 
     public void mostrarMuroEnNavegador(){
+        // conjuntoDeEntradas.clear();
         //para poner fecha actual.
         LocalDate fecha = LocalDate.now();
 
@@ -150,6 +151,7 @@ public class Muro
      */
     public void mostrarMuroEnNavegador(String usuario){    
         conjuntoDeEntradas.clear();
+		entradasJuanYElena.clear();
         try {
             URL url = new URL("https://script.google.com/macros/s/AKfycbzHc3p1twTfyF7o0_cxSwnxSsyOemuHnSu406ly9DZIf5Ck2BA/exec?user="+usuario+"");
             Scanner sc = new Scanner(url.openStream());
@@ -169,6 +171,21 @@ public class Muro
                     int meGusta = Integer.parseInt(besos);
                     String mensaje = datosFechaHora[4];
                     String comentarios = datosFechaHora[5];
+
+                    //prepara condición para mostrar comentarios, si los hay.
+                    String listaComentarios[] = comentarios.split("%");
+                    ArrayList<String> comentariosElenaYJuan = new ArrayList<>();
+                    for(int a = 0; a < listaComentarios.length; a ++){
+                        if(!comentarios.contains("Sin comentarios")){
+                            String valor = listaComentarios[a];
+                            comentariosElenaYJuan.add(valor);
+                        }
+                        
+                    }
+
+                    for(int z = 0; z < comentariosElenaYJuan.size(); z ++){
+                        System.out.println(comentariosElenaYJuan.get(z));
+                    }      
                     // divide el datosFechaHora[3]  en dos elementos separados por -.
                     String fechaHora[] =  datosFechaHora[3].split("-");
                     //en fechaHora[0] se encuentra la fecha, la divide en elementos separados por /.
@@ -190,7 +207,7 @@ public class Muro
                     //paso el String hora[] a entero.
                     String minutos = horaYMinutos[1];
                     int minutes = Integer.parseInt(minutos);
-                    Entrada entradaTexto = new EntradaTexto(autor, meGusta, dayOfMonth, month, year, hour, minutes, mensaje, comentarios);
+                    Entrada entradaTexto = new EntradaTexto(autor, meGusta, dayOfMonth, month, year, hour, minutes, mensaje, comentariosElenaYJuan);
                     conjuntoDeEntradas.add(entradaTexto);
                 }
                 else if(entradasJuanYElena.get(i).contains("EntradaFoto")){
@@ -203,6 +220,18 @@ public class Muro
                     String urlFoto = datosFechaHora[4];
                     String titulo = datosFechaHora[5];
                     String comentarios = datosFechaHora[6];
+
+					//prepara condición para mostrar comentarios, si los hay.
+                    String listaComentarios[] = comentarios.split("%");
+                    ArrayList<String> comentariosElenaYJuan = new ArrayList<>();
+                    for(int a = 0; a < listaComentarios.length; a ++){
+                        if(!comentarios.contains("Sin comentarios")){
+                            String valor = listaComentarios[a];
+                            comentariosElenaYJuan.add(valor);
+                        }
+                        
+                    }
+
                     // divide el datosFechaHora[3]  en dos elementos separados por -.
                     String fechaHora[] =  datosFechaHora[3].split("-");
                     //en fechaHora[0] se encuentra la fecha, la divide en elementos separados por /.
@@ -224,7 +253,7 @@ public class Muro
                     //paso el String hora[] a entero.
                     String minutos = horaYMinutos[1];
                     int minutes = Integer.parseInt(minutos);
-                    Entrada entradaFoto = new EntradaFoto(autor, meGusta, dayOfMonth, month, year, hour, minutes, urlFoto, titulo, comentarios);
+                    Entrada entradaFoto = new EntradaFoto(autor, meGusta, dayOfMonth, month, year, hour, minutes, urlFoto, titulo, comentariosElenaYJuan);
                     conjuntoDeEntradas.add(entradaFoto);
                 }
                 else if(entradasJuanYElena.get(i).contains("EntradaUnionAGrupo")){
@@ -266,7 +295,7 @@ public class Muro
         catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         //////////////////////////////****************************
         //para poner fecha actual.
         LocalDate fecha = LocalDate.now();
@@ -290,7 +319,7 @@ public class Muro
             archivo.write("<h1>   DATOS DE TODAS LAS ENTRADAS. ______________________  "  +fecha+    " </h1>");
 
             for(Entrada entrada: conjuntoDeEntradas){
-                
+
                 archivo.write(entrada.getHTML());
                 //((EntradaTexto)entrada).getHTMLTexto();
             }
@@ -314,8 +343,8 @@ public class Muro
             System.out.println(ex);
         }
     }
-    
-        public void zzzMostrarMuroEnNavegadorJuanYElena(String usuario){
+
+    public void zzzMostrarMuroEnNavegadorJuanYElena(String usuario){
         //para poner fecha actual.
         LocalDate fecha = LocalDate.now();
 
@@ -348,9 +377,5 @@ public class Muro
         }
     }
 }
-
-
-
-
 
 

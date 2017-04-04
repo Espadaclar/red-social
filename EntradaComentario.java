@@ -15,10 +15,10 @@ public class EntradaComentario  extends Entrada
         comentarios = new ArrayList<>();
     }
     
-     public EntradaComentario(String autor, int meGusta,  int  dayOfMonth, int month, int year, int  hour, int minute )
+     public EntradaComentario(String autor, int meGusta,  int  dayOfMonth, int month, int year, int  hour, int minute, ArrayList comentarios )
     {
         super(autor, meGusta,dayOfMonth, month, year, hour, minute );
-        comentarios = new ArrayList<>();
+        this.comentarios = comentarios;
     }
 
     public void addComentario(String text){
@@ -60,7 +60,7 @@ public class EntradaComentario  extends Entrada
         else {
             //Se recopilan los comentarios
             a += "<p> Comentarios: </p>";
-            for (String comentario : getComentarios()) {
+            for (String comentario: getComentarios()) {
                 a += "<p class=\"clase\">" +comentario + "</p>";
             }
         } 

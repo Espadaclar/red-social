@@ -20,9 +20,9 @@ public class EntradaFoto extends EntradaComentario
     }
 
     public EntradaFoto(String autor, int meGusta,  int  dayOfMonth, int month, int year, int  hour, int minute,
-                        String url, String titulo, String comentarios)
+                        String url, String titulo, ArrayList comentarios)
     {
-        super(autor, meGusta,dayOfMonth, month, year, hour, minute );
+        super(autor, meGusta,dayOfMonth, month, year, hour, minute, comentarios );
         urlImagen = url;
         this.titulo = titulo;
     }
