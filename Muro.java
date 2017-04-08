@@ -12,7 +12,7 @@ import java.io.File;
 
 import java.util.Scanner;
 import java.net.URL;
-
+import java.util.Random;
 /**
  * @ autor franciscoJavier
  */
@@ -92,7 +92,22 @@ public class Muro
             archivo.write("<html>");
             archivo.write("<head>");
             //enlace a una página css, para dar formato a la presentación.
-            archivo.write("<link href=\"p1.css\" type=\"text/css\" rel=\"stylesheet\"/> "); 
+            //"<link href=\"p1.css\" type=\"text/css\" rel=\"stylesheet\"/> "  tres posibilidades, aleatorias
+            Random ale = new Random();
+            int elige = ale.nextInt(4);
+            if(elige == 0){
+                archivo.write("<link href=\"p4.css\" type=\"text/css\" rel=\"stylesheet\"/> "); 
+            }
+            else if(elige == 1){
+                archivo.write("<link href=\"p2.css\" type=\"text/css\" rel=\"stylesheet\"/> "); 
+            }
+            else if(elige == 2){
+                archivo.write("<link href=\"p3.css\" type=\"text/css\" rel=\"stylesheet\"/> "); 
+            }
+            else if(elige == 3){
+                archivo.write("<link href=\"p4.css\" type=\"text/css\" rel=\"stylesheet\"/> "); 
+            }
+
             archivo.write("</head>");
             archivo.write("<body>");
 
@@ -151,7 +166,7 @@ public class Muro
      */
     public void mostrarMuroEnNavegador(String usuario){    
         conjuntoDeEntradas.clear();
-		entradasJuanYElena.clear();
+        entradasJuanYElena.clear();
         try {
             URL url = new URL("https://script.google.com/macros/s/AKfycbzHc3p1twTfyF7o0_cxSwnxSsyOemuHnSu406ly9DZIf5Ck2BA/exec?user="+usuario+"");
             Scanner sc = new Scanner(url.openStream());
@@ -180,12 +195,9 @@ public class Muro
                             String valor = listaComentarios[a];
                             comentariosElenaYJuan.add(valor);
                         }
-                        
+
                     }
 
-                    for(int z = 0; z < comentariosElenaYJuan.size(); z ++){
-                        System.out.println(comentariosElenaYJuan.get(z));
-                    }      
                     // divide el datosFechaHora[3]  en dos elementos separados por -.
                     String fechaHora[] =  datosFechaHora[3].split("-");
                     //en fechaHora[0] se encuentra la fecha, la divide en elementos separados por /.
@@ -221,7 +233,7 @@ public class Muro
                     String titulo = datosFechaHora[5];
                     String comentarios = datosFechaHora[6];
 
-					//prepara condición para mostrar comentarios, si los hay.
+                    //prepara condición para mostrar comentarios, si los hay.
                     String listaComentarios[] = comentarios.split("%");
                     ArrayList<String> comentariosElenaYJuan = new ArrayList<>();
                     for(int a = 0; a < listaComentarios.length; a ++){
@@ -229,7 +241,7 @@ public class Muro
                             String valor = listaComentarios[a];
                             comentariosElenaYJuan.add(valor);
                         }
-                        
+
                     }
 
                     // divide el datosFechaHora[3]  en dos elementos separados por -.
@@ -296,52 +308,8 @@ public class Muro
             e.printStackTrace();
         }
 
-        //////////////////////////////****************************
-        //para poner fecha actual.
-        LocalDate fecha = LocalDate.now();
+        mostrarMuroEnNavegador();
 
-        // Obtenemos una referencia a una ruta donde estará el archivo
-        Path rutaArchivo = Paths.get("prueba.html");
-
-        // Abrimos el archivo, escribimos en él y lo cerramos. Si se produce una
-        try  
-        {
-            BufferedWriter archivo = Files.newBufferedWriter(rutaArchivo);
-            //String cadena[] = toString().split("\n"); 
-
-            archivo.write("<html>");
-            archivo.write("<head>");
-            //enlace a una página css, para dar formato a la presentación.
-            archivo.write("<link href=\"p1.css\" type=\"text/css\" rel=\"stylesheet\"/> "); 
-            archivo.write("</head>");
-            archivo.write("<body>");
-
-            archivo.write("<h1>   DATOS DE TODAS LAS ENTRADAS. ______________________  "  +fecha+    " </h1>");
-
-            for(Entrada entrada: conjuntoDeEntradas){
-
-                archivo.write(entrada.getHTML());
-                //((EntradaTexto)entrada).getHTMLTexto();
-            }
-            archivo.write("<body>");
-            archivo.write("</html>");
-            archivo.close();
-        }
-        catch (IOException excepcion) {
-            // Mostramos por pantalla la excepción que se ha producido
-            System.out.println(excepcion.toString());
-
-        }
-
-        try {
-
-            File objetofile = new File ("prueba.html");
-            Desktop.getDesktop().open(objetofile);
-
-        }catch (IOException ex) {
-
-            System.out.println(ex);
-        }
     }
 
     public void zzzMostrarMuroEnNavegadorJuanYElena(String usuario){
@@ -377,5 +345,4 @@ public class Muro
         }
     }
 }
-
 

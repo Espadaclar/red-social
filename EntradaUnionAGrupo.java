@@ -49,8 +49,10 @@ public class EntradaUnionAGrupo extends Entrada
 
     public String getHTML(){
         String a = "<h2>=== -- ENTRADA A GRUPO.</h2>";
+        a += "<dif class=\"uno\">";
         a += "<p> Nombre del grupo: "+grupo +  "</p>";
         a += super.getHTML();
+        a += "</div>";
         return a;
     }
     
