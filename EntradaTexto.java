@@ -50,10 +50,8 @@ class EntradaTexto extends EntradaComentario {
 
     public String getHTML(){
         String a = "<h2>=== -- ENTRADA DE MENSAJES.</h2>";
-        a += "<dif class=\"uno\">";
         a += super.getHTML();
         a += "<p> Mensaje: " +mensaje+ "</p>"; 
-        a += "</div>";
         return a;
     }
     

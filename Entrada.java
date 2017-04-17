@@ -77,7 +77,7 @@ public abstract class Entrada
             datos += diasQueHanPasadoDesdeCreacion+ " días y " +horasResidualesDeDias+ " horas.";
         }
         else if (horasQueHanPasadoDesdeCreacion > 1) {
-            datos += horasQueHanPasadoDesdeCreacion+ " horas y " + minutosResidualesDeHoras+ " minutos. ";
+            datos += horasQueHanPasadoDesdeCreacion+ " horas, " + minutosResidualesDeHoras+ " minutos y " +segundosResiduales+ " segundos.";
         }
         else{
             if (minutosQueHanPasadoDesdeCreacion > 0) {

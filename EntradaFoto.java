@@ -62,13 +62,11 @@ public class EntradaFoto extends EntradaComentario
 
     public String getHTML(){
         String a = "<h2>=== -- ENTRADA DE FOTOS.</h2>";
-        a += "<dif class=\"uno\">";
         a += "<p> Titulo: " +titulo+ "</p>";
         a += "<p> Direccion URL de foto: </p>";
         a += "<p> " +urlImagen+ "</p>";
         a += "<p> <img src=\""+urlImagen+ "\"> </p>";
          a += super.getHTML();
-         a += "</div>";
         return a;
     }
     
