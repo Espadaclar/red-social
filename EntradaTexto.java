@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 
+import java.util.Arrays;
 /**
  *@ autor franciscoJavier
  */
@@ -12,6 +13,11 @@ class EntradaTexto extends EntradaComentario {
     public EntradaTexto(String autor, String texto){
         super(autor);
         mensaje = texto;
+    }
+    
+    public EntradaTexto(String autor, int meGusta,  int  dayOfMonth, int month, int year, int  hour, int minute, String mensaje, ArrayList comentarios){
+        super(autor, meGusta,dayOfMonth, month, year, hour, minute, comentarios );
+        this.mensaje = mensaje;
     }
 
     public void meGusta(){
@@ -43,9 +49,9 @@ class EntradaTexto extends EntradaComentario {
     }
 
     public String getHTML(){
-        String a = "";
+        String a = "<h2>=== -- ENTRADA DE MENSAJES.</h2>";
         a += super.getHTML();
-        a += "<p> Mensaje: " +mensaje+ "</p>";       
+        a += "<p> Mensaje: " +mensaje+ "</p>"; 
         return a;
     }
     
